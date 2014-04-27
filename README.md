@@ -1,7 +1,7 @@
-Bol.com OpenAPI java client
+Bol.com OpenAPI v4 java client
 ===========================================
 
-Provides an easy way to communicate with the Bol.com OpenAPI.
+Provides an easy way to communicate with the Bol.com OpenAPI v4.
 
 The `client` is what you want to use as dependency of your project. The `client` provides the easy way of communicating. See [client README.md](subprojects/client/README.md) on how to use it.
 
@@ -34,3 +34,9 @@ OpenAPI limitations
 
 - Max. 2000 requests per 60 minutes
 - Session lives for 20 minutes without activity
+
+Todo
+====
+- Release to Maven Central/bintray
+- Extend to include all OpenAPI v4 functionality
+- Backport to OpenAPI v3
