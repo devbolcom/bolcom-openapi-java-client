@@ -1,0 +1,16 @@
+apply plugin: 'jaxb'
+
+dependencies {
+    jaxb 'com.sun.xml.bind:jaxb-xjc:2.2.4-1'
+}
+
+apply plugin: 'idea'
+// Fix IntelliJ Module to:
+// exclude everything in $buildDir except the generated-src directory
+// this to make the generated classed from XSD accessible in IntelliJ
+def excludes = fileTree(buildDir)
+excludes.exclude 'generated-src'
+idea.module.excludeDirs -= file(buildDir)
+idea.module.excludeDirs += excludes.files
+//idea.module.excludeDirs.each { println it }
+idea.module.sourceDirs += file("${buildDir}/generated-src/jaxb/main")

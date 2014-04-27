@@ -1,0 +1,8 @@
+.gradle
+build
+target
+.idea
+out
+classes
+*.iml
+openapi.properties

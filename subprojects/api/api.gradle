@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply from: script('integrationTest')
+
+description = """Bol.com OpenAPI v4 HTTP Client"""
+
+dependencies {
+    compile project(':schema')
+    compile libraries.feign
+    compile libraries.apacheCommonsLang
+
+    testCompile libraries.spock
+    testCompile libraries.hamcrest
+    testCompile libraries.mockWebServer
+}
+
+def setTestProperties = {
+    def openApiProps = new Properties()
+    openApiProps.load(rootProject.file('openapi.properties').newInputStream())
+    systemProperty('OPENAPI_KEY', openApiProps.getProperty('test.openapi.v4.apikey'))
+}
+
+test setTestProperties
+integrationTest setTestProperties

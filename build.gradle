@@ -1,0 +1,29 @@
+apply from: script('requireJavaVersion7')
+apply from: script('dependencies')
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.entitas.gradle.jaxb:gradle-jaxb-plugin:2.0'
+    }
+}
+
+description = 'Bol.com OpenAPI java client'
+group = 'nl.ikoodi.bol.openapi'
+version = '4.0.0-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+String createProjectGroupId(Project root, Project project) {
+    root.group << '.' << project.name.replaceAll('-', '.')
+}
+
+File script(String name) {
+    project.file("gradle/${name}.gradle")
+}

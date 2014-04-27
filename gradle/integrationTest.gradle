@@ -1,0 +1,42 @@
+import static org.gradle.api.plugins.JavaBasePlugin.VERIFICATION_GROUP
+
+sourceSets {
+    integrationTest {
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+task integrationTest(type: Test, description: 'Runs the integration tests.', group: VERIFICATION_GROUP) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+}
+
+check.dependsOn(integrationTest)
+
+plugins.withType(org.gradle.plugins.ide.idea.IdeaPlugin) { // lazy as plugin not applied yet
+    idea {
+        module {
+            plugins.withType(org.gradle.api.plugins.GroovyBasePlugin) {
+                testSourceDirs += sourceSets.integrationTest.groovy.srcDirs
+            }
+            testSourceDirs += sourceSets.integrationTest.resources.srcDirs
+            scopes.TEST.plus.add(configurations.integrationTestCompile)
+            scopes.TEST.plus.add(configurations.integrationTestRuntime)
+        }
+    }
+}
+
+plugins.withType(org.gradle.plugins.ide.eclipse.EclipsePlugin) { // lazy as plugin not applied yet
+    eclipse {
+        classpath {
+            plusConfigurations.add(configurations.integrationTestCompile)
+            plusConfigurations.add(configurations.integrationTestRuntime)
+        }
+    }
+}
