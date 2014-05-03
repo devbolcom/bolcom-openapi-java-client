@@ -1,4 +1,4 @@
-package com.bol.api.openapi;
+package nl.ikoodi.bol.openapi;
 
 import com.bol.api.openapi_4_0.Pong;
 import com.bol.api.openapi_4_0.SearchResults;

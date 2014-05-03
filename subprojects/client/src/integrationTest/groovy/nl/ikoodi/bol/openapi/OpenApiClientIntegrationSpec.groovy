@@ -1,6 +1,5 @@
 package nl.ikoodi.bol.openapi
 
-import com.bol.api.openapi.client.OpenApiClient
 import spock.lang.Ignore
 import spock.lang.Specification
 
@@ -30,7 +29,6 @@ class OpenApiClientIntegrationSpec extends Specification {
         results.categories.size() == 0
         results.refinementGroups.size() == 0
     }
-
 
     def 'Search by multiple terms'() {
         def results = OpenApiClient.withDefaultClient(apiKey).searchBuilder()

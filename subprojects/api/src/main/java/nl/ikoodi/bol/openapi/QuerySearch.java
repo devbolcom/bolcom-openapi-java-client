@@ -1,4 +1,4 @@
-package com.bol.api.openapi;
+package nl.ikoodi.bol.openapi;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -11,8 +11,6 @@ buildscript {
 }
 
 description = 'Bol.com OpenAPI java client'
-group = 'nl.ikoodi.bol.openapi'
-version = '4.0.0-SNAPSHOT'
 
 allprojects {
     repositories {

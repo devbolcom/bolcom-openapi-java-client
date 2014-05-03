@@ -1,4 +1,4 @@
-package com.bol.api.openapi;
+package nl.ikoodi.bol.openapi;
 
 public class QuerySortingMethod {
 

@@ -1,9 +1,6 @@
 apply from: script('jaxb')
 apply plugin: 'groovy'
 
-group = 'com.bol.api.openapi'
-version = '4.0.0'
-
 description = """OpenAPI v4 Schema"""
 
 dependencies {

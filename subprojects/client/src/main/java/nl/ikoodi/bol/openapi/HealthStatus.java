@@ -1,7 +1,7 @@
-package com.bol.api.openapi.client;
+package nl.ikoodi.bol.openapi;
 
-import static com.bol.api.openapi.client.HealthStatus.Status.HEALTHY;
-import static com.bol.api.openapi.client.HealthStatus.Status.UNHEALTY;
+import static nl.ikoodi.bol.openapi.HealthStatus.Status.HEALTHY;
+import static nl.ikoodi.bol.openapi.HealthStatus.Status.UNHEALTY;
 
 public class HealthStatus {
 
@@ -15,11 +15,7 @@ public class HealthStatus {
     private String message;
 
     public HealthStatus(Status status) {
-        if (HEALTHY.equals(status)) {
-            healthy = true;
-        } else {
-            healthy = false;
-        }
+        healthy = HEALTHY.equals(status);
         this.message = "";
     }
 

@@ -1,4 +1,4 @@
-package com.bol.api.openapi.internal.interceptor;
+package nl.ikoodi.bol.openapi.internal.interceptor;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;

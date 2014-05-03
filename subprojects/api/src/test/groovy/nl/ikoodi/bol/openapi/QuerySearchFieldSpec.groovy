@@ -1,9 +1,9 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static com.bol.api.openapi.QuerySearchField.SearchField.*
+import static nl.ikoodi.bol.openapi.QuerySearchField.SearchField.*
 
 class QuerySearchFieldSpec extends Specification {
 
@@ -16,7 +16,7 @@ class QuerySearchFieldSpec extends Specification {
         searchField.toString() == result
 
         where:
-        field || result
+        field     || result
         NONE      || 'none'
         AUTHOR    || 'author'
         ARTIST    || 'artist'

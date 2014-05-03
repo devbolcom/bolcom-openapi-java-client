@@ -1,12 +1,12 @@
-package com.bol.api.openapi;
+package nl.ikoodi.bol.openapi;
 
-import com.bol.api.openapi.internal.interceptor.JsonFormatRequestInterceptor;
-import com.bol.api.openapi.internal.interceptor.OpenApiV4AuthenticationRequestInterceptor;
 import feign.Feign;
 import feign.RequestInterceptor;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.jaxrs.JAXRSModule;
+import nl.ikoodi.bol.openapi.internal.interceptor.JsonFormatRequestInterceptor;
+import nl.ikoodi.bol.openapi.internal.interceptor.OpenApiV4AuthenticationRequestInterceptor;
 
 import java.util.Arrays;
 import java.util.Objects;

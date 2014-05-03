@@ -1,11 +1,11 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 
-import static com.bol.api.openapi.QueryDataTypes.DataType.PRODUCTS
-import static com.bol.api.openapi.QueryOfferTypes.OfferType.SECONDHAND
-import static com.bol.api.openapi.QuerySortingMethod.SortingBy.PRICE
-import static com.bol.api.openapi.QuerySortingMethod.SortingOrder.ASCENDING
+import static nl.ikoodi.bol.openapi.QueryDataTypes.DataType.PRODUCTS
+import static nl.ikoodi.bol.openapi.QueryOfferTypes.OfferType.SECONDHAND
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingBy.PRICE
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingOrder.ASCENDING
 import static org.hamcrest.Matchers.isEmptyString
 import static org.hamcrest.Matchers.not
 import static spock.util.matcher.HamcrestSupport.that

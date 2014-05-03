@@ -1,6 +1,6 @@
-package com.bol.api.openapi;
+package nl.ikoodi.bol.openapi;
 
-import static com.bol.api.openapi.QuerySearchField.SearchField.NONE;
+import static nl.ikoodi.bol.openapi.QuerySearchField.SearchField.NONE;
 
 public class QuerySearchField {
 

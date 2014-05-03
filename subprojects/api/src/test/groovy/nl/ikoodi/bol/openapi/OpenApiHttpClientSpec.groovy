@@ -1,4 +1,4 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import com.bol.api.openapi_4_0.Pong
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -9,9 +9,9 @@ import com.squareup.okhttp.mockwebserver.MockWebServer
 import com.squareup.okhttp.mockwebserver.RecordedRequest
 import spock.lang.Specification
 
-import static com.bol.api.openapi.internal.interceptor.JsonFormatRequestInterceptor.QUERY_FORMAT_JSON
-import static com.bol.api.openapi.internal.interceptor.JsonFormatRequestInterceptor.QUERY_FORMAT_KEY
-import static com.bol.api.openapi.internal.interceptor.OpenApiV4AuthenticationRequestInterceptor.QUERY_AUTH_KEY
+import static nl.ikoodi.bol.openapi.internal.interceptor.JsonFormatRequestInterceptor.QUERY_FORMAT_JSON
+import static nl.ikoodi.bol.openapi.internal.interceptor.JsonFormatRequestInterceptor.QUERY_FORMAT_KEY
+import static nl.ikoodi.bol.openapi.internal.interceptor.OpenApiV4AuthenticationRequestInterceptor.QUERY_AUTH_KEY
 
 class OpenApiHttpClientSpec extends Specification {
 

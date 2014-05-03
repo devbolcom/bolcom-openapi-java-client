@@ -1,11 +1,11 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static com.bol.api.openapi.QuerySortingMethod.SortingBy.*
-import static com.bol.api.openapi.QuerySortingMethod.SortingOrder.ASCENDING
-import static com.bol.api.openapi.QuerySortingMethod.SortingOrder.DESCENDING
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingBy.*
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingOrder.ASCENDING
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingOrder.DESCENDING
 
 class QuerySortingMethodSpec extends Specification {
 
@@ -18,7 +18,7 @@ class QuerySortingMethodSpec extends Specification {
         method.toString() == result
 
         where:
-        by | order || result
+        by     | order      || result
         RANK   | ASCENDING  || 'rankasc'
         RANK   | DESCENDING || 'rankdesc'
         PRICE  | ASCENDING  || 'priceasc'

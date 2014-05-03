@@ -1,12 +1,11 @@
-package com.bol.api.openapi.client;
+package nl.ikoodi.bol.openapi;
 
-import com.bol.api.openapi.*;
 import com.bol.api.openapi_4_0.Pong;
 import com.bol.api.openapi_4_0.SearchResults;
 
-import static com.bol.api.openapi.QueryOfferTypes.OfferType.*;
-import static com.bol.api.openapi.QuerySortingMethod.SortingBy.PRICE;
-import static com.bol.api.openapi.QuerySortingMethod.SortingOrder.ASCENDING;
+import static nl.ikoodi.bol.openapi.QueryOfferTypes.OfferType.*;
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingBy.PRICE;
+import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingOrder.ASCENDING;
 
 public class OpenApiClient {
 

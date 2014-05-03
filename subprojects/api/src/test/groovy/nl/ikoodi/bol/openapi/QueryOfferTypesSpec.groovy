@@ -1,8 +1,8 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 
-import static com.bol.api.openapi.QueryOfferTypes.OfferType.*
+import static nl.ikoodi.bol.openapi.QueryOfferTypes.OfferType.*
 
 class QueryOfferTypesSpec extends Specification {
 

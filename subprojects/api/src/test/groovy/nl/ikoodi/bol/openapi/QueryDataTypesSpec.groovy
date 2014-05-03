@@ -1,8 +1,8 @@
-package com.bol.api.openapi
+package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 
-import static com.bol.api.openapi.QueryDataTypes.DataType.*
+import static nl.ikoodi.bol.openapi.QueryDataTypes.DataType.*
 
 class QueryDataTypesSpec extends Specification {
     def 'Add one type results in a single query value'() {
