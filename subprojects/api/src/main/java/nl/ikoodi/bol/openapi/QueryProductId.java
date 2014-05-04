@@ -5,11 +5,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class QueryCategoryIds {
+public class QueryProductId {
 
     private final Set<String> ids = new LinkedHashSet<>();
 
-    private QueryCategoryIds(Set<String> ids) {
+    private QueryProductId(Set<String> ids) {
         this.ids.addAll(ids);
     }
 
@@ -35,12 +35,12 @@ public class QueryCategoryIds {
             return this;
         }
 
-        public QueryCategoryIds create() {
-            return new QueryCategoryIds(ids);
+        public QueryProductId create() {
+            return new QueryProductId(ids);
         }
 
-        public QueryCategoryIds none() {
-            return new QueryCategoryIds(new LinkedHashSet<String>());
+        public QueryProductId none() {
+            return new QueryProductId(new LinkedHashSet<String>());
         }
     }
 }

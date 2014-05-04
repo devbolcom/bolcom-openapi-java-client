@@ -1,10 +1,10 @@
 package nl.ikoodi.bol.openapi;
 
-public class QueryIncludeAttributes {
+public class QueryIncludeAttribute {
 
     private final boolean includeAttributes;
 
-    private QueryIncludeAttributes(boolean includeAttributes) {
+    private QueryIncludeAttribute(boolean includeAttributes) {
         this.includeAttributes = includeAttributes;
     }
 
@@ -26,12 +26,12 @@ public class QueryIncludeAttributes {
             // empty to have private constructor
         }
 
-        public QueryIncludeAttributes include() {
-            return new QueryIncludeAttributes(true);
+        public QueryIncludeAttribute include() {
+            return new QueryIncludeAttribute(true);
         }
 
-        public QueryIncludeAttributes exclude() {
-            return new QueryIncludeAttributes(false);
+        public QueryIncludeAttribute exclude() {
+            return new QueryIncludeAttribute(false);
         }
     }
 }

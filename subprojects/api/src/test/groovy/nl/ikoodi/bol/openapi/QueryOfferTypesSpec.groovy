@@ -2,13 +2,13 @@ package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
 
-import static nl.ikoodi.bol.openapi.QueryOfferTypes.OfferType.*
+import static nl.ikoodi.bol.openapi.QueryOfferType.OfferType.*
 
 class QueryOfferTypesSpec extends Specification {
 
     def 'Add one type results in a single query value'() {
         given:
-        def types = QueryOfferTypes.builder()
+        def types = QueryOfferType.builder()
                 .add(CHEAPEST)
                 .create()
 
@@ -18,7 +18,7 @@ class QueryOfferTypesSpec extends Specification {
 
     def 'Add two types results in a comma-separated query value with two values'() {
         given:
-        def types = QueryOfferTypes.builder()
+        def types = QueryOfferType.builder()
                 .add(CHEAPEST)
                 .add(ALL)
                 .create()
@@ -29,7 +29,7 @@ class QueryOfferTypesSpec extends Specification {
 
     def 'Add three types results in a comma-separated query value with three values'() {
         given:
-        def types = QueryOfferTypes.builder()
+        def types = QueryOfferType.builder()
                 .add(CHEAPEST)
                 .add(SECONDHAND)
                 .add(ALL)

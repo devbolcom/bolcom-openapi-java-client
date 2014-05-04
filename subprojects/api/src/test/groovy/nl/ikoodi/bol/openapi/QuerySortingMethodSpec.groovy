@@ -15,10 +15,10 @@ class QuerySortingMethodSpec extends Specification {
         def method = QuerySortingMethod.builder().by(by).order(order)
 
         expect:
-        method.toString() == result
+        method.toString() == queryValue
 
         where:
-        by     | order      || result
+        by     | order      || queryValue
         RANK   | ASCENDING  || 'rankasc'
         RANK   | DESCENDING || 'rankdesc'
         PRICE  | ASCENDING  || 'priceasc'

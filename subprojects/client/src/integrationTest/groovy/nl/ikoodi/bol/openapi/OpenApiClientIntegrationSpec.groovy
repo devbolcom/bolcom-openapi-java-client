@@ -1,6 +1,5 @@
 package nl.ikoodi.bol.openapi
 
-import spock.lang.Ignore
 import spock.lang.Specification
 
 class OpenApiClientIntegrationSpec extends Specification {
@@ -102,25 +101,22 @@ class OpenApiClientIntegrationSpec extends Specification {
         product.offerData.offers.size() >= 1
     }
 
-    @Ignore('OpenAPI does not make clear where the included attributes reside in the model...')
-    def 'Can include all product attributes in the search results'() {
-        def results = OpenApiClient.withDefaultClient(apiKey).searchBuilder()
-                .term('harry potter')
-//                .includeProductAttributes()
-                .search()
-
-        expect:
-        results.totalResultSize > 0
-        results.products.size() == 20
-        results.categories.size() == 0
-        results.refinementGroups.size() == 0
-    }
-
     def 'Can find out if the OpenAPI is healthy'() {
         def status = OpenApiClient.withDefaultClient(apiKey).getHealthStatus()
 
         expect:
         status.healthy
         status.message == ''
+    }
+
+    def 'Can get list of top selling products'() {
+        def results = OpenApiClient.withDefaultClient(apiKey).listBuilder()
+                .list()
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() > 0
+        results.categories.size() == 0
+        results.refinementGroups.size() == 0
     }
 }

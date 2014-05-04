@@ -4,8 +4,8 @@ public class QueryLimit {
 
     private final int limit;
 
-    private QueryLimit(int offset) {
-        this.limit = offset;
+    private QueryLimit(int limit) {
+        this.limit = limit;
     }
 
     @Override

@@ -6,7 +6,7 @@ class QueryIncludeAttributesSpec extends Specification {
 
     def 'Can include attributes'() {
         given:
-        def includeAttributes = QueryIncludeAttributes.builder().include()
+        def includeAttributes = QueryIncludeAttribute.builder().include()
 
         expect:
         includeAttributes.toString() == 'true'
@@ -14,7 +14,7 @@ class QueryIncludeAttributesSpec extends Specification {
 
     def 'Can exclude attributes'() {
         given:
-        def includeAttributes = QueryIncludeAttributes.builder().exclude()
+        def includeAttributes = QueryIncludeAttribute.builder().exclude()
 
         expect:
         includeAttributes.toString() == 'false'

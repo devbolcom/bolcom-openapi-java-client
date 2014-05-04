@@ -5,11 +5,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class QueryDataTypes {
+public class QueryDataType {
 
     private final Set<String> types = new LinkedHashSet<>();
 
-    private QueryDataTypes(Set<String> types) {
+    private QueryDataType(Set<String> types) {
         this.types.addAll(types);
     }
 
@@ -51,8 +51,8 @@ public class QueryDataTypes {
             return this;
         }
 
-        public QueryDataTypes create() {
-            return new QueryDataTypes(types);
+        public QueryDataType create() {
+            return new QueryDataType(types);
         }
     }
 }

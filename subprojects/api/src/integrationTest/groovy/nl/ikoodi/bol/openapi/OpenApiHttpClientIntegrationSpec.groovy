@@ -1,9 +1,12 @@
 package nl.ikoodi.bol.openapi
 
 import spock.lang.Specification
+import spock.lang.Unroll
 
-import static nl.ikoodi.bol.openapi.QueryDataTypes.DataType.PRODUCTS
-import static nl.ikoodi.bol.openapi.QueryOfferTypes.OfferType.SECONDHAND
+import static nl.ikoodi.bol.openapi.QueryDataType.DataType.*
+import static nl.ikoodi.bol.openapi.QueryOfferType.OfferType.ALL
+import static nl.ikoodi.bol.openapi.QueryOfferType.OfferType.SECONDHAND
+import static nl.ikoodi.bol.openapi.QueryProductListType.ProductListType.*
 import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingBy.PRICE
 import static nl.ikoodi.bol.openapi.QuerySortingMethod.SortingOrder.ASCENDING
 import static org.hamcrest.Matchers.isEmptyString
@@ -50,14 +53,14 @@ class OpenApiHttpClientIntegrationSpec extends Specification {
         def client = OpenApiHttpClient.create(apiKey)
         def results = client.search(
                 QuerySearch.builder().add("potter").create()
-                , QueryProductIds.builder().none()
-                , QueryCategoryIds.builder().none()
-                , QueryDataTypes.builder().add(PRODUCTS).create()
-                , QueryOfferTypes.builder().add(SECONDHAND).create()
+                , QueryProductId.builder().none()
+                , QueryCategoryId.builder().none()
+                , QueryDataType.builder().add(PRODUCTS).create()
+                , QueryOfferType.builder().add(SECONDHAND).create()
                 , QuerySortingMethod.builder().by(PRICE).order(ASCENDING)
                 , QueryOffset.builder().offset(0)
                 , QueryLimit.builder().limit(10)
-                , QueryIncludeAttributes.builder().exclude()
+                , QueryIncludeAttribute.builder().exclude()
                 , QuerySearchField.builder().none()
         )
 
@@ -66,5 +69,80 @@ class OpenApiHttpClientIntegrationSpec extends Specification {
         results.products.size() > 0 && results.products.size() <= 10
         results.categories.size() == 0
         results.refinementGroups.size() == 0
+    }
+
+    def 'List all categories'() {
+        given:
+        def client = OpenApiHttpClient.create(apiKey)
+        def results = client.list(
+                QueryDataType.builder().add(CATEGORIES).create()
+        )
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() == 0
+        results.categories.size() > 0
+        results.refinementGroups.size() == 0
+    }
+
+    def 'List all refinements'() {
+        given:
+        def client = OpenApiHttpClient.create(apiKey)
+        def results = client.list(
+                QueryDataType.builder().add(REFINEMENTS).create()
+        )
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() == 0
+        results.categories.size() == 0
+        results.refinementGroups.size() > 0
+    }
+
+    def 'List products in a list specified by id'() {
+        given:
+        def client = OpenApiHttpClient.create(apiKey)
+        def results = client.list(
+                QueryListId.builder().id('fake_id')
+                , QueryOffset.builder().offset(0)
+                , QueryLimit.builder().limit(10)
+        )
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() > 0 && results.products.size() <= 10
+        results.categories.size() == 0
+        results.refinementGroups.size() == 0
+    }
+
+    @Unroll
+    def 'List products in a pre-defined list "#listName"'() {
+        given:
+        def client = OpenApiHttpClient.create(apiKey)
+        def results = client.list(
+                QueryProductListType.builder().list(listName)
+                , QueryCategoryId.builder().none()
+                , QueryDataType.builder().add(PRODUCTS).create()
+                , QueryOfferType.builder().add(ALL).create()
+                , QuerySortingMethod.builder().by(PRICE).order(ASCENDING)
+                , QueryOffset.builder().offset(0)
+                , QueryLimit.builder().limit(10)
+                , QueryIncludeAttribute.builder().exclude()
+        )
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() > 0 && results.products.size() <= 10
+        results.categories.size() == 0
+        results.refinementGroups.size() == 0
+
+        where:
+        listName        | _
+        DEFAULT         | _
+        OVERALL         | _
+        LAST_WEEK       | _
+        LAST_TWO_MONTHS | _
+        NEW             | _
+        PRE_ORDER       | _
     }
 }

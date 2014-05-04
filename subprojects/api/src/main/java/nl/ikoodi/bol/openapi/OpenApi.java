@@ -1,5 +1,6 @@
 package nl.ikoodi.bol.openapi;
 
+import com.bol.api.openapi_4_0.ListResults;
 import com.bol.api.openapi_4_0.Pong;
 import com.bol.api.openapi_4_0.SearchResults;
 
@@ -16,14 +17,37 @@ public interface OpenApi {
     @GET
     @Path("/catalog/v4/search")
     SearchResults search(@QueryParam("q") QuerySearch query,
-                         @QueryParam("pids") QueryProductIds productIds,
-                         @QueryParam("ids") QueryCategoryIds categoryIds,
-                         @QueryParam("dataOutput") QueryDataTypes dataTypes,
-                         @QueryParam("offers") QueryOfferTypes offerTypes,
+                         @QueryParam("pids") QueryProductId productIds,
+                         @QueryParam("ids") QueryCategoryId categoryIds,
+                         @QueryParam("dataoutput") QueryDataType dataTypes,
+                         @QueryParam("offers") QueryOfferType offerTypes,
                          @QueryParam("sort") QuerySortingMethod sortingMethod,
                          @QueryParam("offset") QueryOffset offset,
                          @QueryParam("limit") QueryLimit limit,
-                         @QueryParam("includeAttributes") QueryIncludeAttributes includeAttributes,
-                         @QueryParam("searchField") QuerySearchField searchField
+                         @QueryParam("includeattributes") QueryIncludeAttribute includeAttributes,
+                         @QueryParam("searchfield") QuerySearchField searchField
+    );
+
+    @GET
+    @Path("/catalog/v4/lists")
+    ListResults list(@QueryParam("type") QueryProductListType type,
+                     @QueryParam("ids") QueryCategoryId categoryIds,
+                     @QueryParam("dataoutput") QueryDataType dataTypes,
+                     @QueryParam("offers") QueryOfferType offerTypes,
+                     @QueryParam("sort") QuerySortingMethod sortingMethod,
+                     @QueryParam("offset") QueryOffset offset,
+                     @QueryParam("limit") QueryLimit limit,
+                     @QueryParam("includeattributes") QueryIncludeAttribute includeAttributes
+    );
+
+    @GET
+    @Path("/catalog/v4/lists")
+    ListResults list(@QueryParam("dataoutput") QueryDataType dataTypes);
+
+    @GET
+    @Path("/catalog/v4/lists")
+    ListResults list(@QueryParam("listId") QueryListId listId,
+                     @QueryParam("offset") QueryOffset offset,
+                     @QueryParam("limit") QueryLimit limit
     );
 }
