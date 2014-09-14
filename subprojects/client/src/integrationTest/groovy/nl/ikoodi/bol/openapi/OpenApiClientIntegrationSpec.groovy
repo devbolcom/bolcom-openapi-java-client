@@ -64,7 +64,7 @@ class OpenApiClientIntegrationSpec extends Specification {
 
         expect:
         results.totalResultSize > 0
-        results.products.size() == 20
+        results.products.size() <= 20
         results.categories.size() == 0
         results.refinementGroups.size() == 0
     }

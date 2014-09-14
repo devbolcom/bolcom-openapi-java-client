@@ -4,8 +4,8 @@ ext {
 }
 
 versions += [
-        groovy    : '2.3.0-rc-1',
-        feign     : '6.1.1',
+        groovy    : '2.3.6',
+        feign     : '6.1.2',
 ]
 
 libraries += [
