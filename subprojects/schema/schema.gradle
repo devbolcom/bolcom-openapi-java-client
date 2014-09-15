@@ -1,7 +1,7 @@
 apply from: script('jaxb')
 apply plugin: 'groovy'
 
-description = """OpenAPI v4 Schema"""
+description = 'OpenAPI v4 Schema'
 
 dependencies {
     testCompile libraries.spock

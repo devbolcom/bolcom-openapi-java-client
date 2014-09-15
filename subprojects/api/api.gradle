@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply from: script('integrationTest')
 
-description = """Bol.com OpenAPI v4 HTTP Client"""
+description = 'Bol.com OpenAPI v4 HTTP Client'
 
 dependencies {
     compile project(':schema')
