@@ -22,4 +22,4 @@ The basic usage of the `OpenApiClient` is simple and self explanatory:
 
     // do something with the search results
 
-Take a look at the `OpenApiClientSpec` and `OpenApiClientIntegrationSpec` for more examples.
+Take a look at the `OpenApiClientIntegrationSpec` for more examples.
