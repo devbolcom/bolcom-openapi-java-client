@@ -4,9 +4,11 @@ apply from: script('dependencies')
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'no.entitas.gradle.jaxb:gradle-jaxb-plugin:2.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3'
     }
 }
 

@@ -1,0 +1,59 @@
+apply plugin: 'maven-publish'
+apply plugin: 'bintray'
+publishing {
+    publications {
+        main(MavenPublication) {
+            if (plugins.hasPlugin('war')) {
+                from components.web
+            } else {
+                from components.java
+            }
+            artifact sourcesJar
+//            artifact javadocJar
+//            artifact groovydocJar
+            pom.withXml {
+                asNode().with {
+                    appendNode('name', 'Bol.com OpenAPI Java client')
+                    appendNode('description', 'Bol.com OpenAPI Java client')
+                    appendNode('url', 'http://github.com/pvdissel/openapi-java')
+                    appendNode('licenses').with {
+                        appendNode('license').with {
+                            appendNode('name', 'MIT')
+                            appendNode('url', 'http://opensource.org/licenses/MIT')
+                        }
+                    }
+                    appendNode('developers').with {
+                        appendNode('developer').with {
+                            appendNode('id', 'pvdissel')
+                            appendNode('name', 'Patrick van Dissel')
+                            appendNode('email', 'pvdissel@gmail.com')
+                        }
+                    }
+                    appendNode('scm').with {
+                        appendNode('connection', 'git://github.com/pvdissel/openapi-java.git')
+                        appendNode('developerConnection', 'git@github.com:pvdissel/openapi-java.git')
+                        appendNode('url', 'http://github.com/pvdissel/openapi-java')
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
+    bintray {
+        user = project.bintrayUser
+        key = project.bintrayKey
+        publications = ['main']
+        pkg {
+            repo = 'bol-com-releases'
+            name = 'com.bol.openapi:openapi-java'
+            desc = 'Bol.com OpenAPI Java client'
+            licenses = ['Apache-2.0']
+            labels = []
+        }
+    }
+}
+bintrayUpload.dependsOn('generatePomFileForMainPublication', 'build')

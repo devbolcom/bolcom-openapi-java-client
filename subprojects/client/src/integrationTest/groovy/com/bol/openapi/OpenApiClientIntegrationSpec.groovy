@@ -82,7 +82,7 @@ class OpenApiClientIntegrationSpec extends Specification {
 
         def product = results.products.get(0)
         println product.EAN
-        product.offerData.offers.size() > 1
+        product.offerData.offers.size() >= 1
     }
 
     def 'Return cheapest offer of a product'() {

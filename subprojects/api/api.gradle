@@ -22,3 +22,31 @@ def setTestProperties = {
 
 test setTestProperties
 integrationTest setTestProperties
+
+apply from: script('publishing')
+
+archivesBaseName = "${rootProject.name}-${project.name}"
+publishing {
+    publications {
+        main(MavenPublication) {
+            artifactId project.archivesBaseName
+        }
+    }
+}
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc.outputs.files
+}
+task groovydocJar(type: Jar) {
+    classifier = 'groovydoc'
+    from groovydoc.outputs.files
+}
+artifacts {
+    archives sourcesJar
+//    archives javadocJar
+//    archives groovydocJar
+}
