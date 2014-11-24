@@ -1,7 +1,12 @@
+import static org.gradle.api.JavaVersion.VERSION_1_7
+
 apply from: script('jaxb')
 apply plugin: 'groovy'
 
 description = 'OpenAPI v4 Schema'
+
+targetCompatibility = VERSION_1_7
+sourceCompatibility = VERSION_1_7
 
 dependencies {
     testCompile libraries.spock

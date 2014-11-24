@@ -1,8 +1,13 @@
+import static org.gradle.api.JavaVersion.VERSION_1_7
+
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply from: script('integrationTest')
 
 description = 'Bol.com OpenAPI v4 HTTP Client'
+
+targetCompatibility = VERSION_1_7
+sourceCompatibility = VERSION_1_7
 
 dependencies {
     compile project(':schema')
