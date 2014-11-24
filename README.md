@@ -28,6 +28,18 @@ To get the bol.com OpenAPI client binaries, add the JCenter repository (https://
   }
   ```
 
+Requirements
+------------
+- Java 7+
+- A bol.com developer key (which you can request at https://developers.bol.com)
+
+OpenAPI limitations
+-------------------
+(based on the bol.com OpenAPI documentation)
+
+- Max. 2000 requests per 60 minutes
+- Session lives for 20 minutes without activity
+
 Usage
 -----
 
@@ -45,18 +57,6 @@ After that is set-up, you can run the following command to compile and test the 
 
 ### IDE
 To be able to run the integration tests in your IDE, make sure the `OPENAPI_KEY` environment variable is set to your key in your test run.
-
-Requirements
-------------
-- Java 7+
-- A bol.com developer key (which you can request at https://developers.bol.com)
-
-OpenAPI limitations
--------------------
-(based on the bol.com OpenAPI documentation)
-
-- Max. 2000 requests per 60 minutes
-- Session lives for 20 minutes without activity
 
 Todo
 ====
