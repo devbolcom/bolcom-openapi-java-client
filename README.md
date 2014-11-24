@@ -8,14 +8,17 @@ The `client` is what you want to use as dependency of your project. The `client`
 To get the bol.com OpenAPI client binaries, add the JCenter repository (https://bintray.com/bintray/jcenter) and the following dependency:
 
 - Maven
-  ```
+  
+  ```xml
   <dependency>
       <groupId>com.bol.openapi</groupId>
       <artifactId>openapi-java-client</artifactId>
       <version>4.0.0</version>
   </dependency>
   ```
+  
 - Gradle
+  
   ```
   repositories {
       jcenter()
