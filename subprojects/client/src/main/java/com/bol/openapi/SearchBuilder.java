@@ -7,7 +7,7 @@ import static com.bol.openapi.QuerySortingMethod.SortingBy.PRICE;
 import static com.bol.openapi.QuerySortingMethod.SortingOrder.ASCENDING;
 import static com.bol.openapi.QuerySortingMethod.SortingOrder.DESCENDING;
 
-class SearchBuilder {
+public class SearchBuilder {
     private static final int OFFSET_DEFAULT = 0;
     private static final int LIMIT_DEFAULT = 10;
     private final OpenApiClient client;
@@ -22,11 +22,11 @@ class SearchBuilder {
     private QueryIncludeAttribute includeAttributes = QueryIncludeAttribute.builder().exclude();
     private QuerySearchField searchField = QuerySearchField.builder().none();
 
-    SearchBuilder(OpenApiClient client) {
+    public SearchBuilder(OpenApiClient client) {
         this.client = client;
     }
 
-    SearchBuilder(SearchBuilder builder) {
+    public SearchBuilder(SearchBuilder builder) {
         this.client = builder.client;
         this.query = builder.query;
         this.productIds = builder.productIds;

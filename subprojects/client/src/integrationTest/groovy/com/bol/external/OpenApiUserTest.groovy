@@ -1,13 +1,17 @@
 package com.bol.external
 
 import com.bol.openapi.OpenApiClient
-import spock.lang.Specification
+import groovy.transform.CompileStatic
+import org.junit.Before
+import org.junit.Test
 
-class OpenApiUserSpec extends Specification {
+@CompileStatic
+class OpenApiUserTest {
 
     private String apiKey
 
-    def setup() {
+    @Before
+    public void setup() {
         apiKey = System.getenv('OPENAPI_KEY')
         if (!apiKey) {
             apiKey = System.getProperty('OPENAPI_KEY')
@@ -18,19 +22,17 @@ class OpenApiUserSpec extends Specification {
         )
     }
 
-    def 'Can use searchBuilder outside the api package'() {
+    @Test
+    public void 'Can use searchBuilder outside the api package'() {
         def openApi = OpenApiClient.withDefaultClient(apiKey)
 
-        expect:
-        def results = openApi.searchBuilder().term('harry potter').search()
-        results.products
+        assert openApi.searchBuilder().term('harry potter').search()
     }
 
-    def 'Can use listBuilder outside the api package'() {
+    @Test
+    public void 'Can use listBuilder outside the api package'() {
         def openApi = OpenApiClient.withDefaultClient(apiKey)
 
-        expect:
-        def results = openApi.listBuilder().list()
-        results.products
+        assert openApi.listBuilder().list()
     }
 }
