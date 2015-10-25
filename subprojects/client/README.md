@@ -16,7 +16,7 @@ The basic usage of the `OpenApiClient` is simple and self explanatory:
 
     OpenApiClient client = OpenApiClient.withDefaultClient(apiKey);
     SearchResults results = client.searchBuilder()
-            .term("harry potter)
+            .term("harry potter")
             .term("boek")
             .search();
 
