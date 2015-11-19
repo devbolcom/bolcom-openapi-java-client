@@ -67,6 +67,11 @@ public class ListBuilder {
         return new ListBuilder(this);
     }
 
+    public ListBuilder dataType(QueryDataType.DataType dataType) {
+        dataTypes.add(dataType);
+        return new ListBuilder(this);
+    }
+
     public ListBuilder allOffers() {
         offerTypes.add(ALL);
         return new ListBuilder(this);
