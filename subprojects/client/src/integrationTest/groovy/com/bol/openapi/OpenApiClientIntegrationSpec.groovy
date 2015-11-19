@@ -119,4 +119,26 @@ class OpenApiClientIntegrationSpec extends Specification {
         results.categories.size() == 0
         results.refinementGroups.size() == 0
     }
+
+    def 'Can get list of categories'() {
+        def results = OpenApiClient.withDefaultClient(apiKey).listBuilder().dataType(QueryDataType.DataType.CATEGORIES)
+                .list()
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() == 0
+        results.categories.size() > 0
+        results.refinementGroups.size() == 0
+    }
+
+    def 'Can get list of products and refinements'() {
+        def results = OpenApiClient.withDefaultClient(apiKey).listBuilder().dataType(QueryDataType.DataType.PRODUCTS).dataType(QueryDataType.DataType.REFINEMENTS)
+                .list()
+
+        expect:
+        results.totalResultSize > 0
+        results.products.size() > 0
+        results.categories.size() == 0
+        results.refinementGroups.size() > 0
+    }
 }
