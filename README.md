@@ -16,6 +16,8 @@ To get the bol.com OpenAPI client binaries, add the JCenter repository (https://
       <version>4.0.1</version>
   </dependency>
   ```
+
+  See https://github.com/bintray/bintray-examples/blob/master/maven-example/settings.xml on how the add jcenter to your Maven `settings.xml`, or to your `pom.xml`
   
 - Gradle
   
