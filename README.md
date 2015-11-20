@@ -13,7 +13,7 @@ To get the bol.com OpenAPI client binaries, add the JCenter repository (https://
   <dependency>
       <groupId>com.bol.openapi</groupId>
       <artifactId>openapi-java-client</artifactId>
-      <version>4.0.1</version>
+      <version>4.1.0</version>
   </dependency>
   ```
 
@@ -26,7 +26,7 @@ To get the bol.com OpenAPI client binaries, add the JCenter repository (https://
       jcenter()
   }
   dependencies {
-      compile 'com.bol.openapi:openapi-java-client:4.0.1'
+      compile 'com.bol.openapi:openapi-java-client:4.1.0'
   }
   ```
 
