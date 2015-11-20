@@ -101,6 +101,33 @@ class OpenApiClientIntegrationSpec extends Specification {
         product.offerData.offers.size() >= 1
     }
 
+    def 'Return products and categories'() {
+        def results = OpenApiClient.withDefaultClient(apiKey).searchBuilder()
+                .term('harry potter')
+                .dataType(QueryDataType.DataType.PRODUCTS)
+                .dataType(QueryDataType.DataType.CATEGORIES)
+                .search()
+
+        expect:
+        results.totalResultSize >= 1
+        results.products.size() > 0
+        results.categories.size() > 0
+        results.refinementGroups.size() == 0
+    }
+
+    def 'Return only refinements'() {
+        def results = OpenApiClient.withDefaultClient(apiKey).searchBuilder()
+                .term('harry potter')
+                .dataType(QueryDataType.DataType.REFINEMENTS)
+                .search()
+
+        expect:
+        results.totalResultSize >= 1
+        results.products.size() == 0
+        results.categories.size() == 0
+        results.refinementGroups.size() > 0
+    }
+
     def 'Can find out if the OpenAPI is healthy'() {
         def status = OpenApiClient.withDefaultClient(apiKey).getHealthStatus()
 

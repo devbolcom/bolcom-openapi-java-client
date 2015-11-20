@@ -75,6 +75,7 @@
             <xs:element name="ShortDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="LongDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="TrackLists" type="TrackList" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="energyLabelLetter" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="AttributeGroups" type="AttributeGroup" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="EntityGroups" type="EntityGroup" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="Urls" type="Entry" minOccurs="0" maxOccurs="unbounded"/>
@@ -98,6 +99,7 @@
             <xs:element name="Comment" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="Seller" type="Seller" minOccurs="0" maxOccurs="1"/>
             <xs:element name="bestOffer" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ReleaseDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -131,6 +133,7 @@
             <xs:element name="warrantyConditions" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="repairConditions" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="approvalPercentage" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="registrationDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -265,6 +268,7 @@
         <xs:sequence>
             <xs:element name="Category" minOccurs="0" maxOccurs="1" type="Category"/>
             <xs:element name="RefinementGroups" minOccurs="0" maxOccurs="unbounded" type="RefinementGroup"/>
+            <xs:element name="RetailId" minOccurs="0" maxOccurs="1" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
