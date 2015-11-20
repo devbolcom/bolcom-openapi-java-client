@@ -55,6 +55,11 @@ public class SearchBuilder {
         return new SearchBuilder(this);
     }
 
+    public SearchBuilder dataType(QueryDataType.DataType dataType) {
+        dataTypes.add(dataType);
+        return new SearchBuilder(this);
+    }
+
     public SearchBuilder allOffers() {
         offerTypes.add(ALL);
         return new SearchBuilder(this);
